@@ -21,5 +21,6 @@ fn main() {
 
     let day3in = utils::parse_and_split_lines(&read_input("src/inputs/day03.txt"), ',');
     let day3a: i32 = days::day03::day03a(&day3in);
-    println!("{}", day3a);
+    let day3b: i32 = days::day03::day03b(&day3in);
+    println!("{} {}", day3a, day3b);
 }
