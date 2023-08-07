@@ -19,8 +19,13 @@ fn main() {
     // let day2b: i32 = days::day02::day02b(&day2in);
     // println!("{} {}", day2a, day2b);
 
-    let day3in = utils::parse_and_split_lines(&read_input("src/inputs/day03.txt"), ',');
-    let day3a: i32 = days::day03::day03a(&day3in);
-    let day3b: i32 = days::day03::day03b(&day3in);
-    println!("{} {}", day3a, day3b);
+    // let day3in = utils::parse_and_split_lines(&read_input("src/inputs/day03.txt"), ',');
+    // let day3a: i32 = days::day03::day03a(&day3in);
+    // let day3b: i32 = days::day03::day03b(&day3in);
+    // println!("{} {}", day3a, day3b);
+
+    let day4in = "171309-643603";
+    let day4a: i32 = days::day04::day04a(day4in);
+    let day4b: i32 = days::day04::day04b(day4in);
+    println!("{} {}", day4a, day4b);
 }
