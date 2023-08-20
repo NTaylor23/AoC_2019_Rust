@@ -2,12 +2,9 @@ use std::fs::{read_to_string, File};
 use std::io::BufRead;
 use std::io::BufReader;
 
-pub fn parse_and_split_lines(file: &File, sep: char) -> Vec<Vec<String>> {
-    
-    let reader = BufReader::new(file);
-    
+pub fn parse_and_split(file: &File, sep: char) -> Vec<Vec<String>> {
+    let reader = BufReader::new(file);    
     let mut content: Vec<Vec<String>> = Vec::new();
-
     for ln in reader.lines() {
         match ln {
             Ok(s) => content.push(s.split(sep).map(str::to_string).collect()),
@@ -15,6 +12,14 @@ pub fn parse_and_split_lines(file: &File, sep: char) -> Vec<Vec<String>> {
         }
     }
     content
+}
+
+pub fn read_strings(file: &File) -> Vec<String> {
+    let reader = BufReader::new(file);
+    reader
+        .lines()
+        .map(|ln| ln.unwrap())
+        .collect()
 }
 
 pub fn read_numbers(file: &File) -> Vec<i32> {
@@ -26,6 +31,14 @@ pub fn read_numbers(file: &File) -> Vec<i32> {
         .collect();
 
     numbers
+}
+
+pub fn read_digits(path: &str) -> Vec<u32> {
+    read_to_string(path)
+        .unwrap()
+        .chars()
+        .map(|c| c as u32 - '0' as u32)
+        .collect()
 }
 
 pub fn read_csv_numbers(path: &str) -> Vec<i32> {
